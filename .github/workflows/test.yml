@@ -1,6 +1,16 @@
-name: test
+name: Test
 
-on: workflow_dispatch
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "test/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "test/**"
 
 env:
   FOUNDRY_PROFILE: ci
@@ -30,5 +40,7 @@ jobs:
 
       - name: Run Forge tests
         run: |
-          forge test -vvv
+          forge test -vvv --fork-url https://eth-mainnet.g.alchemy.com/v2/$ALCHEMY_API_KEY --fork-block-number  15780157
         id: test
+        env:
+          ALCHEMY_API_KEY: ${{ secrets.ALCHEMY_API_KEY }}
