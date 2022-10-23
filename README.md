@@ -24,7 +24,7 @@ forge build
 ```
 
 ### 3. Execute a Liquidation Call 🔥
-Run the following command. This will run test/Liquidation.t.sol, a test contract for src/Liquidation.sol on the Ethereum Mainnet fork network on your local machine.
+Replace `<your alchemy rpc url>` with the Ethereum Mainnet RPC URL you get from step 1 and run the following command. This will run test/Liquidation.t.sol, a test contract for src/Liquidation.sol on the Ethereum Mainnet fork network on your local machine.
 ```bash
 forge test -vv --fork-url <your alchemy rpc url> --fork-block-number 15780157 --mp test/Liquidation.t.sol
 ```
